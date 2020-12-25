@@ -1,0 +1,6 @@
+*.vscode
+*.config*
+*.tools*
+*Xilinx
+ltmain.sh
+*riscv-none-embed-gcc

@@ -1,0 +1,9 @@
+[submodule "tools/iverilog"]
+	path = tools/iverilog
+	url = https://github.com/steveicarus/iverilog.git
+[submodule "tools/gdocker"]
+	path = tools/gdocker
+	url = https://github.com/xiongyumail/gdocker.git
+[submodule "projects/tinyriscv"]
+	path = projects/tinyriscv
+	url = https://github.com/xiongyumail/tinyriscv.git
