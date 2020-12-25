@@ -116,7 +116,7 @@ if [ ! -f "${WORK_PATH}/.tools/toolchain" ]; then
       mkdir toolchain
    fi
    cd toolchain
-   if [! -f "xpack-riscv-none-embed-gcc-8.3.0-2.3-linux-x64.tar.gz" ]; then
+   if [ ! -f "xpack-riscv-none-embed-gcc-8.3.0-2.3-linux-x64.tar.gz" ]; then
       wget https://github.com/xpack-dev-tools/riscv-none-embed-gcc-xpack/releases/download/v8.3.0-2.3/xpack-riscv-none-embed-gcc-8.3.0-2.3-linux-x64.tar.gz
    fi
    
