@@ -19,7 +19,7 @@ tmux new-session -d -s $session -n chip_test
 tmux split-window -t $session:0 -h
 
 tmux send-keys -t $session:0.0 'cd ${PROJECTS_PATH};/bin/bash test.sh' C-m
-tmux send-keys -t $session:0.1 'cd ${PROJECTS_PATH};code .' C-m
+tmux send-keys -t $session:0.1 'cd ${PROJECTS_PATH};' C-m
 
 tmux select-pane -t $session:0.1
 tmux attach-session -t $session
