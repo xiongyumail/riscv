@@ -7,3 +7,6 @@
 [submodule "projects/tinyriscv"]
 	path = projects/tinyriscv
 	url = https://github.com/xiongyumail/tinyriscv.git
+[submodule "tools/riscv-openocd"]
+	path = tools/riscv-openocd
+	url = https://github.com/riscv/riscv-openocd.git

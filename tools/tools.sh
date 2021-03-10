@@ -65,6 +65,8 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
                      ipython3 \
                      python3-pip \
                      gtkwave
+
+pip3 install pyserial
 if [ ! -f "${TEMP_PATH}/.tools/iverilog" ]; then
    cd ${TEMP_PATH}
    cp -r ${WORK_PATH}/iverilog ${TEMP_PATH}/
@@ -81,7 +83,8 @@ fi
 
 # tmux
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
-   tmux
+                     picocom \
+                     tmux
 if [ ! -f "${TEMP_PATH}/.tools/tmux" ]; then
    cd ${WORK_PATH}
    cd tmux
@@ -104,6 +107,23 @@ if [ ! -f "${TEMP_PATH}/.tools/toolchain" ]; then
    tar zxvf xpack-riscv-none-embed-gcc-8.3.0-2.3-linux-x64.tar.gz
    echo "export RISCV_NONE_EMBED_GCC_PATH=${TEMP_PATH}/toolchain/xpack-riscv-none-embed-gcc-8.3.0-2.3/bin" >> ${HOME}/.bashrc
    echo "toolchain: riscv-none-embed-gcc install ok" >> ${TEMP_PATH}/.tools/toolchain
+fi
+
+# riscv-openocd
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+                     texinfo \
+                     libusb-1.0 \
+                     telnet
+if [ ! -f "${TEMP_PATH}/.tools/riscv-openocd" ]; then
+   cd ${WORK_PATH}
+   cd riscv-openocd
+   ./bootstrap
+   ./configure
+   make -j4 
+   sudo make install
+   cp -r ${WORK_PATH}/riscv-openocd ${TEMP_PATH}/
+   echo "export RISCV_OPENOCD_PATH=${TEMP_PATH}/riscv-openocd" >> ${HOME}/.bashrc
+   echo "riscv-openocd install ok" >> ${TEMP_PATH}/.tools/riscv-openocd
 fi
 
 sudo apt-get clean
