@@ -28,14 +28,9 @@ module tingriscv_fpga_top(
     
     output sysled,       // 系统状态指示灯
 
-    output over,         // 测试是否完成信号
-    output succ,         // 测试是否成功信号
-
     output halted_ind,  // jtag是否已经halt住CPU信号
     
     output [1:0] gpio_led,
-    
-    input uart_debug_pin, // 串口下载使能引脚
 
     output uart_tx_pin, // UART发送引脚
     input uart_rx_pin,  // UART接收引脚
@@ -44,12 +39,7 @@ module tingriscv_fpga_top(
     input jtag_TCK,     // JTAG TCK引脚
     input jtag_TMS,     // JTAG TMS引脚
     input jtag_TDI,     // JTAG TDI引脚
-    output jtag_TDO,    // JTAG TDO引脚
-
-    input spi_miso,     // SPI MISO引脚
-    output spi_mosi,    // SPI MOSI引脚
-    output spi_ss,      // SPI SS引脚
-    output spi_clk      // SPI CLK引脚
+    output jtag_TDO    // JTAG TDO引脚
     );
     
     
@@ -63,26 +53,45 @@ clk_wiz_0 clk_wiz_0_inst
     .clk_in1_n(clk_250m_n)
 );
 
-wire over_n, succ_n, halted_ind_n;
+wire halted_ind_n;
 
-assign over = ~over_n;
-assign succ = ~succ_n;
 assign halted_ind = ~halted_ind_n;
 assign gpio_led = gpio;
 
+localparam SYSLED_DIV = 50000000;
+reg[25:0] sysled_cnt;
+reg sysled;
+
+always @ (posedge clk_50m) begin
+    if (sysrst == 1) begin
+        sysled_cnt <= 26'd0;
+    end else begin
+        if (sysled_cnt == SYSLED_DIV / 2 - 1) begin
+            sysled_cnt <= 26'd0;
+        end else begin
+            sysled_cnt <= sysled_cnt + 1'd1;
+        end
+    end
+end
+
+always @ (posedge clk_50m) begin
+    if (sysrst == 1) begin
+        sysled <= 1'b0;
+    end else begin
+        if (sysled_cnt == SYSLED_DIV / 2 - 1) begin
+            sysled <= !sysled;
+        end else begin
+            sysled <= sysled;
+        end
+    end
+end
+
 tinyriscv_soc_top tinyriscv_soc_top_inst
 (
-    .sysclk(clk_50m),        
-    .sysrst(~sysrst),
-    
-    .sysled(sysled),       // 系统状态指示灯
-
-    .over(over_n),         // 测试是否完成信号
-    .succ(succ_n),         // 测试是否成功信号
+    .clk(clk_50m),        
+    .rst_ext_i(~sysrst),
 
     .halted_ind(halted_ind_n),  // jtag是否已经halt住CPU信号
-
-    .uart_debug_pin(uart_debug_pin), // 串口下载使能引脚
 
     .uart_tx_pin(uart_tx_pin), // UART发送引脚
     .uart_rx_pin(uart_rx_pin),  // UART接收引脚
@@ -91,12 +100,6 @@ tinyriscv_soc_top tinyriscv_soc_top_inst
     .jtag_TCK(jtag_TCK),     // JTAG TCK引脚
     .jtag_TMS(jtag_TMS),     // JTAG TMS引脚
     .jtag_TDI(jtag_TDI),     // JTAG TDI引脚
-    .jtag_TDO(jtag_TDO),    // JTAG TDO引脚
-
-    .spi_miso(spi_miso),     // SPI MISO引脚
-    .spi_mosi(spi_mosi),    // SPI MOSI引脚
-    .spi_ss(spi_ss),      // SPI SS引脚
-    .spi_clk(spi_clk)      // SPI CLK引脚
-
+    .jtag_TDO(jtag_TDO)    // JTAG TDO引脚
  );
 endmodule

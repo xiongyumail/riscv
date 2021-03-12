@@ -7,7 +7,7 @@ python ./test_all_isa.py
 cd ${WORK_PATH}/tinyriscv/sim/compliance_test
 python ./compliance_test.py ../../tests/riscv-compliance/build_generated/rv32i/I-ADD-01.elf.bin inst.data
 
-cd ${WORK_PATH}/tinyriscv/tests/example/simple
+cd ${WORK_PATH}/tinyriscv/sdk/examples/simple
 make -j4
 
 cd ${WORK_PATH}/tinyriscv/sim

@@ -15,27 +15,19 @@ set_property PACKAGE_PIN BE22 [get_ports sysrst]
 set_property IOSTANDARD LVCMOS18 [get_ports sysled]
 set_property PACKAGE_PIN BA37 [get_ports sysled]
 
-# 程序执行完毕指示引脚
-set_property IOSTANDARD LVCMOS18 [get_ports over]
-set_property PACKAGE_PIN AT32 [get_ports over]
-
-# 程序执行成功指示引脚
-set_property IOSTANDARD LVCMOS18 [get_ports succ]
-set_property PACKAGE_PIN AV34 [get_ports succ]
-
 # CPU停住指示引脚
 set_property IOSTANDARD LVCMOS18 [get_ports halted_ind]
 set_property PACKAGE_PIN AY30 [get_ports halted_ind]
 
 # GPIO指示灯
 set_property IOSTANDARD LVCMOS18 [get_ports {gpio_led[0]}]
-set_property PACKAGE_PIN BB32 [get_ports {gpio_led[0]}]
+set_property PACKAGE_PIN AT32 [get_ports {gpio_led[0]}]
 set_property IOSTANDARD LVCMOS18 [get_ports {gpio_led[1]}]
-set_property PACKAGE_PIN BF32 [get_ports {gpio_led[1]}]
+set_property PACKAGE_PIN AV34 [get_ports {gpio_led[1]}]
 
-# 串口下载使能引脚
-set_property IOSTANDARD LVCMOS18 [get_ports uart_debug_pin]
-set_property PACKAGE_PIN Y34 [get_ports uart_debug_pin]
+## 串口下载使能引脚
+#set_property IOSTANDARD LVCMOS18 [get_ports uart_debug_pin]
+#set_property PACKAGE_PIN Y34 [get_ports uart_debug_pin]
 
 # 串口发送引脚
 set_property IOSTANDARD LVCMOS18 [get_ports uart_tx_pin]
@@ -71,21 +63,21 @@ set_property PACKAGE_PIN AH33 [get_ports jtag_TDI]
 set_property IOSTANDARD LVCMOS18 [get_ports jtag_TDO]
 set_property PACKAGE_PIN AJ30 [get_ports jtag_TDO]
 
-# SPI MISO引脚
-set_property IOSTANDARD LVCMOS18 [get_ports spi_miso]
-set_property PACKAGE_PIN M12 [get_ports spi_miso]
+## SPI MISO引脚
+#set_property IOSTANDARD LVCMOS18 [get_ports spi_miso]
+#set_property PACKAGE_PIN M12 [get_ports spi_miso]
 
-# SPI MOSI引脚
-set_property IOSTANDARD LVCMOS18 [get_ports spi_mosi]
-set_property PACKAGE_PIN AJ31 [get_ports spi_mosi]
+## SPI MOSI引脚
+#set_property IOSTANDARD LVCMOS18 [get_ports spi_mosi]
+#set_property PACKAGE_PIN AJ31 [get_ports spi_mosi]
 
-# SPI SS引脚
-set_property IOSTANDARD LVCMOS18 [get_ports spi_ss]
-set_property PACKAGE_PIN K14 [get_ports spi_ss]
+## SPI SS引脚
+#set_property IOSTANDARD LVCMOS18 [get_ports spi_ss]
+#set_property PACKAGE_PIN K14 [get_ports spi_ss]
 
-# SPI CLK引脚
-set_property IOSTANDARD LVCMOS18 [get_ports spi_clk]
-set_property PACKAGE_PIN AG34 [get_ports spi_clk]
+## SPI CLK引脚
+#set_property IOSTANDARD LVCMOS18 [get_ports spi_clk]
+#set_property PACKAGE_PIN AG34 [get_ports spi_clk]
 
 set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
 set_property CONFIG_MODE SPIx4 [current_design]
