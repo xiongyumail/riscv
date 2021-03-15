@@ -10,4 +10,4 @@ make clean
 make -j4
 
 # telnet
-riscv-none-embed-gdb ${WORK_PATH}/tinyriscv/sdk/examples/uart_tx/uart_tx -x ${WORK_PATH}/tinyriscv/sdk/examples/gdbinit
+riscv-none-embed-gdb ${WORK_PATH}/tinyriscv/sdk/examples/FreeRTOS/Demo/tinyriscv_GCC/freertos -x ${WORK_PATH}/tinyriscv/sdk/examples/gdbinit
