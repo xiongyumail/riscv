@@ -1,0 +1,209 @@
+12:44:22 INFO  : Launching XSCT server: xsct -n  -interactive /home/vitis/projects/tinyriscv_zynq/temp_xsdb_launch_script.tcl
+12:44:23 INFO  : Registering command handlers for Vitis TCF services
+12:44:25 INFO  : Platform repository initialization has completed.
+12:44:25 INFO  : XSCT server has started successfully.
+12:44:25 INFO  : Successfully done setting XSCT server connection channel  
+12:44:25 INFO  : plnx-install-location is set to ''
+12:44:25 INFO  : Successfully done setting workspace for the tool. 
+12:44:25 INFO  : Successfully done query RDI_DATADIR 
+13:03:13 INFO  : Launching XSCT server: xsct -n  -interactive /home/vitis/projects/tinyriscv_zynq/temp_xsdb_launch_script.tcl
+13:03:13 INFO  : Registering command handlers for Vitis TCF services
+13:03:15 INFO  : XSCT server has started successfully.
+13:03:15 INFO  : plnx-install-location is set to ''
+13:03:15 INFO  : Successfully done setting XSCT server connection channel  
+13:03:15 INFO  : Successfully done query RDI_DATADIR 
+13:03:15 INFO  : Successfully done setting workspace for the tool. 
+13:03:15 INFO  : Platform repository initialization has completed.
+13:04:04 INFO  : Result from executing command 'getProjects': riscv_zynq
+13:04:04 INFO  : Result from executing command 'getPlatforms': 
+13:04:38 INFO  : Result from executing command 'getProjects': riscv_zynq
+13:04:38 INFO  : Result from executing command 'getPlatforms': riscv_zynq|/home/vitis/projects/tinyriscv_zynq/riscv_zynq/export/riscv_zynq/riscv_zynq.xpfm
+13:04:38 INFO  : Successfully done sdx_reload_mss "/home/vitis/projects/tinyriscv_zynq/riscv_zynq/zynq_fsbl/zynq_fsbl_bsp/system.mss"
+13:04:39 INFO  : Successfully done sdx_reload_mss "/home/vitis/projects/tinyriscv_zynq/riscv_zynq/ps7_cortexa9_0/standalone_domain/bsp/system.mss"
+13:05:04 INFO  : Successfully done sdx_reload_mss "/home/vitis/projects/tinyriscv_zynq/riscv_zynq/ps7_cortexa9_0/standalone_domain/bsp/system.mss"
+13:05:04 INFO  : No changes in MSS file content so sources will not be generated.
+13:09:55 INFO  : Checking for BSP changes to sync application flags for project 'helloworld'...
+13:10:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:10:15 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+13:10:15 INFO  : 'jtag frequency' command is executed.
+13:10:15 INFO  : Context for 'APU' is selected.
+13:10:16 INFO  : System reset is completed.
+13:10:19 INFO  : 'after 3000' command is executed.
+13:10:19 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0 && jtag_device_ctx=="jsn-DLC9LP-00000000000000-13722093-0"}' command is executed.
+13:10:23 INFO  : FPGA configured successfully with bitstream "/home/vitis/projects/tinyriscv_zynq/helloworld/_ide/bitstream/design_1_wrapper.bit"
+13:10:23 INFO  : Context for 'APU' is selected.
+13:10:23 INFO  : Hardware design and registers information is loaded from '/home/vitis/projects/tinyriscv_zynq/riscv_zynq/export/riscv_zynq/hw/design_1_wrapper.xsa'.
+13:10:23 INFO  : 'configparams force-mem-access 1' command is executed.
+13:10:23 INFO  : Context for 'APU' is selected.
+13:10:23 INFO  : Sourcing of '/home/vitis/projects/tinyriscv_zynq/helloworld/_ide/psinit/ps7_init.tcl' is done.
+13:10:24 INFO  : 'ps7_init' command is executed.
+13:10:24 INFO  : 'ps7_post_config' command is executed.
+13:10:24 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:10:25 INFO  : The application '/home/vitis/projects/tinyriscv_zynq/helloworld/Debug/helloworld.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:10:25 INFO  : 'configparams force-mem-access 0' command is executed.
+13:10:25 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0 && jtag_device_ctx=="jsn-DLC9LP-00000000000000-13722093-0"}
+fpga -file /home/vitis/projects/tinyriscv_zynq/helloworld/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw /home/vitis/projects/tinyriscv_zynq/riscv_zynq/export/riscv_zynq/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source /home/vitis/projects/tinyriscv_zynq/helloworld/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow /home/vitis/projects/tinyriscv_zynq/helloworld/Debug/helloworld.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:10:25 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:10:25 INFO  : 'con' command is executed.
+13:10:25 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:10:25 INFO  : Launch script is exported to file '/home/vitis/projects/tinyriscv_zynq/.sdk/launch_scripts/single_application_debug/systemdebugger_helloworld_system_standalone.tcl'
+13:12:47 INFO  : Disconnected from the channel tcfchan#3.
+13:13:02 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:13:02 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+13:13:02 INFO  : 'jtag frequency' command is executed.
+13:13:02 INFO  : Context for 'APU' is selected.
+13:13:02 INFO  : System reset is completed.
+13:13:05 INFO  : 'after 3000' command is executed.
+13:13:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0 && jtag_device_ctx=="jsn-DLC9LP-00000000000000-13722093-0"}' command is executed.
+13:13:10 INFO  : FPGA configured successfully with bitstream "/home/vitis/projects/tinyriscv_zynq/helloworld/_ide/bitstream/design_1_wrapper.bit"
+13:13:10 INFO  : Context for 'APU' is selected.
+13:13:10 INFO  : Hardware design and registers information is loaded from '/home/vitis/projects/tinyriscv_zynq/riscv_zynq/export/riscv_zynq/hw/design_1_wrapper.xsa'.
+13:13:10 INFO  : 'configparams force-mem-access 1' command is executed.
+13:13:10 INFO  : Context for 'APU' is selected.
+13:13:10 INFO  : Sourcing of '/home/vitis/projects/tinyriscv_zynq/helloworld/_ide/psinit/ps7_init.tcl' is done.
+13:13:11 INFO  : 'ps7_init' command is executed.
+13:13:11 INFO  : 'ps7_post_config' command is executed.
+13:13:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:13:11 INFO  : The application '/home/vitis/projects/tinyriscv_zynq/helloworld/Debug/helloworld.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:13:12 INFO  : 'configparams force-mem-access 0' command is executed.
+13:13:12 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0 && jtag_device_ctx=="jsn-DLC9LP-00000000000000-13722093-0"}
+fpga -file /home/vitis/projects/tinyriscv_zynq/helloworld/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw /home/vitis/projects/tinyriscv_zynq/riscv_zynq/export/riscv_zynq/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source /home/vitis/projects/tinyriscv_zynq/helloworld/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow /home/vitis/projects/tinyriscv_zynq/helloworld/Debug/helloworld.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:13:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:13:12 INFO  : 'con' command is executed.
+13:13:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:13:12 INFO  : Launch script is exported to file '/home/vitis/projects/tinyriscv_zynq/.sdk/launch_scripts/single_application_debug/systemdebugger_helloworld_system_standalone.tcl'
+13:13:34 INFO  : Disconnected from the channel tcfchan#4.
+13:13:34 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:13:34 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+13:13:34 INFO  : 'jtag frequency' command is executed.
+13:13:34 INFO  : Context for 'APU' is selected.
+13:13:34 INFO  : System reset is completed.
+13:13:37 INFO  : 'after 3000' command is executed.
+13:13:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0 && jtag_device_ctx=="jsn-DLC9LP-00000000000000-13722093-0"}' command is executed.
+13:13:42 INFO  : FPGA configured successfully with bitstream "/home/vitis/projects/tinyriscv_zynq/helloworld/_ide/bitstream/design_1_wrapper.bit"
+13:13:42 INFO  : Context for 'APU' is selected.
+13:13:42 INFO  : Hardware design and registers information is loaded from '/home/vitis/projects/tinyriscv_zynq/riscv_zynq/export/riscv_zynq/hw/design_1_wrapper.xsa'.
+13:13:42 INFO  : 'configparams force-mem-access 1' command is executed.
+13:13:42 INFO  : Context for 'APU' is selected.
+13:13:42 INFO  : Sourcing of '/home/vitis/projects/tinyriscv_zynq/helloworld/_ide/psinit/ps7_init.tcl' is done.
+13:13:43 INFO  : 'ps7_init' command is executed.
+13:13:43 INFO  : 'ps7_post_config' command is executed.
+13:13:43 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:13:44 INFO  : The application '/home/vitis/projects/tinyriscv_zynq/helloworld/Debug/helloworld.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:13:44 INFO  : 'configparams force-mem-access 0' command is executed.
+13:13:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0 && jtag_device_ctx=="jsn-DLC9LP-00000000000000-13722093-0"}
+fpga -file /home/vitis/projects/tinyriscv_zynq/helloworld/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw /home/vitis/projects/tinyriscv_zynq/riscv_zynq/export/riscv_zynq/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source /home/vitis/projects/tinyriscv_zynq/helloworld/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow /home/vitis/projects/tinyriscv_zynq/helloworld/Debug/helloworld.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:13:44 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:13:44 INFO  : 'con' command is executed.
+13:13:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:13:44 INFO  : Launch script is exported to file '/home/vitis/projects/tinyriscv_zynq/.sdk/launch_scripts/single_application_debug/systemdebugger_helloworld_system_standalone.tcl'
+13:14:36 INFO  : Disconnected from the channel tcfchan#5.
+13:14:36 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:14:36 INFO  : Jtag cable 'Platform Cable USB 00000000000000' is selected.
+13:14:36 INFO  : 'jtag frequency' command is executed.
+13:14:36 INFO  : Context for 'APU' is selected.
+13:14:36 INFO  : System reset is completed.
+13:14:39 INFO  : 'after 3000' command is executed.
+13:14:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0 && jtag_device_ctx=="jsn-DLC9LP-00000000000000-13722093-0"}' command is executed.
+13:14:43 INFO  : FPGA configured successfully with bitstream "/home/vitis/projects/tinyriscv_zynq/helloworld/_ide/bitstream/design_1_wrapper.bit"
+13:14:43 INFO  : Context for 'APU' is selected.
+13:14:43 INFO  : Hardware design and registers information is loaded from '/home/vitis/projects/tinyriscv_zynq/riscv_zynq/export/riscv_zynq/hw/design_1_wrapper.xsa'.
+13:14:43 INFO  : 'configparams force-mem-access 1' command is executed.
+13:14:44 INFO  : Context for 'APU' is selected.
+13:14:44 INFO  : Sourcing of '/home/vitis/projects/tinyriscv_zynq/helloworld/_ide/psinit/ps7_init.tcl' is done.
+13:14:45 INFO  : 'ps7_init' command is executed.
+13:14:45 INFO  : 'ps7_post_config' command is executed.
+13:14:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:14:45 INFO  : The application '/home/vitis/projects/tinyriscv_zynq/helloworld/Debug/helloworld.elf' is downloaded to processor 'ps7_cortexa9_0'.
+13:14:45 INFO  : 'configparams force-mem-access 0' command is executed.
+13:14:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Platform Cable USB 00000000000000" && level==0 && jtag_device_ctx=="jsn-DLC9LP-00000000000000-13722093-0"}
+fpga -file /home/vitis/projects/tinyriscv_zynq/helloworld/_ide/bitstream/design_1_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw /home/vitis/projects/tinyriscv_zynq/riscv_zynq/export/riscv_zynq/hw/design_1_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source /home/vitis/projects/tinyriscv_zynq/helloworld/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow /home/vitis/projects/tinyriscv_zynq/helloworld/Debug/helloworld.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+13:14:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+13:14:45 INFO  : 'con' command is executed.
+13:14:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+13:14:45 INFO  : Launch script is exported to file '/home/vitis/projects/tinyriscv_zynq/.sdk/launch_scripts/single_application_debug/systemdebugger_helloworld_system_standalone.tcl'
+13:23:27 INFO  : Disconnected from the channel tcfchan#6.
