@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Mon Mar 15 13:51:12 2021
+//Date        : Tue Mar 16 13:12:44 2021
 //Host        : xiongyu running 64-bit Ubuntu 18.04.5 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -48,8 +48,6 @@ module design_1
     riscv_jtag_TDI,
     riscv_jtag_TDO,
     riscv_jtag_TMS,
-    riscv_sysled,
-    riscv_uart_debug_pin,
     riscv_uart_rx_pin,
     riscv_uart_tx_pin);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR_0 ADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR_0, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_0_addr;
@@ -89,8 +87,6 @@ module design_1
   input riscv_jtag_TDI;
   output riscv_jtag_TDO;
   input riscv_jtag_TMS;
-  output riscv_sysled;
-  input riscv_uart_debug_pin;
   input riscv_uart_rx_pin;
   output riscv_uart_tx_pin;
 
@@ -99,9 +95,6 @@ module design_1
   wire ENET0_GMII_TX_CLK_0_1;
   wire [3:0]In0_0_1;
   wire [1:0]Net;
-  wire jtag_TCK_0_1;
-  wire jtag_TDI_0_1;
-  wire jtag_TMS_0_1;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -131,12 +124,13 @@ module design_1
   wire processing_system7_0_MDIO_ETHERNET_0_MDIO_I;
   wire processing_system7_0_MDIO_ETHERNET_0_MDIO_O;
   wire processing_system7_0_MDIO_ETHERNET_0_MDIO_T;
+  wire riscv_jtag_TCK_1;
+  wire riscv_jtag_TDI_1;
+  wire riscv_jtag_TMS_1;
+  wire riscv_uart_rx_pin_1;
   wire tinyriscv_soc_top_0_halted_ind;
   wire tinyriscv_soc_top_0_jtag_TDO;
-  wire tinyriscv_soc_top_0_sysled;
   wire tinyriscv_soc_top_0_uart_tx_pin;
-  wire uart_debug_pin_0_1;
-  wire uart_rx_pin_0_1;
   wire [7:0]xlconcat_0_dout;
   wire [3:0]xlconcat_1_dout;
 
@@ -149,16 +143,14 @@ module design_1
   assign MDIO_ETHERNET_0_0_mdio_o = processing_system7_0_MDIO_ETHERNET_0_MDIO_O;
   assign MDIO_ETHERNET_0_0_mdio_t = processing_system7_0_MDIO_ETHERNET_0_MDIO_T;
   assign enet_txd[3:0] = xlconcat_1_dout;
-  assign jtag_TCK_0_1 = riscv_jtag_TCK;
-  assign jtag_TDI_0_1 = riscv_jtag_TDI;
-  assign jtag_TMS_0_1 = riscv_jtag_TMS;
   assign processing_system7_0_MDIO_ETHERNET_0_MDIO_I = MDIO_ETHERNET_0_0_mdio_i;
   assign riscv_halted_ind = tinyriscv_soc_top_0_halted_ind;
+  assign riscv_jtag_TCK_1 = riscv_jtag_TCK;
+  assign riscv_jtag_TDI_1 = riscv_jtag_TDI;
   assign riscv_jtag_TDO = tinyriscv_soc_top_0_jtag_TDO;
-  assign riscv_sysled = tinyriscv_soc_top_0_sysled;
+  assign riscv_jtag_TMS_1 = riscv_jtag_TMS;
+  assign riscv_uart_rx_pin_1 = riscv_uart_rx_pin;
   assign riscv_uart_tx_pin = tinyriscv_soc_top_0_uart_tx_pin;
-  assign uart_debug_pin_0_1 = riscv_uart_debug_pin;
-  assign uart_rx_pin_0_1 = riscv_uart_rx_pin;
   design_1_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_0_addr[14:0]),
         .DDR_BankAddr(DDR_0_ba[2:0]),
@@ -209,19 +201,16 @@ module design_1
         .PS_CLK(FIXED_IO_0_ps_clk),
         .PS_PORB(FIXED_IO_0_ps_porb),
         .PS_SRSTB(FIXED_IO_0_ps_srstb));
-  design_1_tinyriscv_soc_top_0_0 tinyriscv_soc_top_0
-       (.gpio(riscv_gpio[1:0]),
+  design_1_tinyriscv_soc_top_0_1 tinyriscv_soc_top_0
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .gpio(riscv_gpio[1:0]),
         .halted_ind(tinyriscv_soc_top_0_halted_ind),
-        .jtag_TCK(jtag_TCK_0_1),
-        .jtag_TDI(jtag_TDI_0_1),
+        .jtag_TCK(riscv_jtag_TCK_1),
+        .jtag_TDI(riscv_jtag_TDI_1),
         .jtag_TDO(tinyriscv_soc_top_0_jtag_TDO),
-        .jtag_TMS(jtag_TMS_0_1),
-        .spi_miso(1'b0),
-        .sysclk(processing_system7_0_FCLK_CLK0),
-        .sysled(tinyriscv_soc_top_0_sysled),
-        .sysrst(processing_system7_0_FCLK_RESET0_N),
-        .uart_debug_pin(uart_debug_pin_0_1),
-        .uart_rx_pin(uart_rx_pin_0_1),
+        .jtag_TMS(riscv_jtag_TMS_1),
+        .rst_ext_i(processing_system7_0_FCLK_RESET0_N),
+        .uart_rx_pin(riscv_uart_rx_pin_1),
         .uart_tx_pin(tinyriscv_soc_top_0_uart_tx_pin));
   design_1_xlconcat_0_0 xlconcat_0
        (.In0(In0_0_1),

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x2F1373D419DC556F",
+      "boundary_crc": "0x5308B9989DFE68E0",
       "device": "xc7z010clg400-1",
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -11,9 +11,9 @@
     },
     "design_tree": {
       "processing_system7_0": "",
-      "tinyriscv_soc_top_0": "",
       "xlconcat_0": "",
-      "xlconcat_1": ""
+      "xlconcat_1": "",
+      "tinyriscv_soc_top_0": ""
     },
     "interface_ports": {
       "DDR_0": {
@@ -167,12 +167,6 @@
             "value_src": "default"
           }
         }
-      },
-      "riscv_sysled": {
-        "direction": "O"
-      },
-      "riscv_uart_debug_pin": {
-        "direction": "I"
       },
       "riscv_uart_rx_pin": {
         "direction": "I"
@@ -589,10 +583,6 @@
           }
         }
       },
-      "tinyriscv_soc_top_0": {
-        "vlnv": "user.org:user:tinyriscv_soc_top:1.0",
-        "xci_name": "design_1_tinyriscv_soc_top_0_0"
-      },
       "xlconcat_0": {
         "vlnv": "xilinx.com:ip:xlconcat:2.1",
         "xci_name": "design_1_xlconcat_0_0",
@@ -616,19 +606,23 @@
             "value": "1"
           }
         }
+      },
+      "tinyriscv_soc_top_0": {
+        "vlnv": "user.org:user:tinyriscv_soc_top:1.0",
+        "xci_name": "design_1_tinyriscv_soc_top_0_1"
       }
     },
     "interface_nets": {
-      "processing_system7_0_FIXED_IO": {
-        "interface_ports": [
-          "FIXED_IO_0",
-          "processing_system7_0/FIXED_IO"
-        ]
-      },
       "processing_system7_0_DDR": {
         "interface_ports": [
           "DDR_0",
           "processing_system7_0/DDR"
+        ]
+      },
+      "processing_system7_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO_0",
+          "processing_system7_0/FIXED_IO"
         ]
       },
       "processing_system7_0_MDIO_ETHERNET_0": {
@@ -667,7 +661,7 @@
         "ports": [
           "processing_system7_0/FCLK_CLK0",
           "processing_system7_0/M_AXI_GP0_ACLK",
-          "tinyriscv_soc_top_0/sysclk"
+          "tinyriscv_soc_top_0/clk"
         ]
       },
       "processing_system7_0_ENET0_GMII_TX_EN": {
@@ -694,28 +688,16 @@
           "processing_system7_0/ENET0_GMII_TX_CLK"
         ]
       },
-      "tinyriscv_soc_top_0_sysled": {
+      "tinyriscv_soc_top_0_halted_ind": {
         "ports": [
-          "tinyriscv_soc_top_0/sysled",
-          "riscv_sysled"
+          "tinyriscv_soc_top_0/halted_ind",
+          "riscv_halted_ind"
         ]
       },
-      "processing_system7_0_FCLK_RESET0_N": {
+      "tinyriscv_soc_top_0_uart_tx_pin": {
         "ports": [
-          "processing_system7_0/FCLK_RESET0_N",
-          "tinyriscv_soc_top_0/sysrst"
-        ]
-      },
-      "uart_debug_pin_0_1": {
-        "ports": [
-          "riscv_uart_debug_pin",
-          "tinyriscv_soc_top_0/uart_debug_pin"
-        ]
-      },
-      "uart_rx_pin_0_1": {
-        "ports": [
-          "riscv_uart_rx_pin",
-          "tinyriscv_soc_top_0/uart_rx_pin"
+          "tinyriscv_soc_top_0/uart_tx_pin",
+          "riscv_uart_tx_pin"
         ]
       },
       "Net": {
@@ -730,34 +712,34 @@
           "riscv_jtag_TDO"
         ]
       },
-      "tinyriscv_soc_top_0_uart_tx_pin": {
-        "ports": [
-          "tinyriscv_soc_top_0/uart_tx_pin",
-          "riscv_uart_tx_pin"
-        ]
-      },
-      "jtag_TDI_0_1": {
+      "riscv_jtag_TDI_1": {
         "ports": [
           "riscv_jtag_TDI",
           "tinyriscv_soc_top_0/jtag_TDI"
         ]
       },
-      "jtag_TMS_0_1": {
+      "riscv_jtag_TMS_1": {
         "ports": [
           "riscv_jtag_TMS",
           "tinyriscv_soc_top_0/jtag_TMS"
         ]
       },
-      "jtag_TCK_0_1": {
+      "riscv_jtag_TCK_1": {
         "ports": [
           "riscv_jtag_TCK",
           "tinyriscv_soc_top_0/jtag_TCK"
         ]
       },
-      "tinyriscv_soc_top_0_halted_ind": {
+      "riscv_uart_rx_pin_1": {
         "ports": [
-          "tinyriscv_soc_top_0/halted_ind",
-          "riscv_halted_ind"
+          "riscv_uart_rx_pin",
+          "tinyriscv_soc_top_0/uart_rx_pin"
+        ]
+      },
+      "processing_system7_0_FCLK_RESET0_N": {
+        "ports": [
+          "processing_system7_0/FCLK_RESET0_N",
+          "tinyriscv_soc_top_0/rst_ext_i"
         ]
       }
     },

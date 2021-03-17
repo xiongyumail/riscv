@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="memtest" location="/home/vitis/projects/tinyriscv_zynq/sdk/memtest" platform="/home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/tinyriscv_zynq.xpfm" platformUID="xilinx:::0.0(custom)" systemProject="memtest_system" sysConfig="tinyriscv_zynq" runtime="C/C++" cpu="standalone_domain" cpuInstance="ps7_cortexa9_0" os="standalone" mssSignature="7fdce3a3ee2cc1fb532565429450eb7f">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.1491471421">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.472890280" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="memory_tests"/>
+</sdkproject:SdkProject>

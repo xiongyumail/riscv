@@ -1,0 +1,55 @@
+2021-03-17T07:07:58.12901600255-07:07:58 **** Build of configuration Debug for project peripheral ****
+000-make all 
+000-make --no-print-directory pre-build
+000-a9-linaro-pre-build-step
+000- 
+000-make --no-print-directory main-build
+000-Building file: ../src/testperiph.c
+000-Invoking: ARM v7 gcc compiler
+000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/testperiph.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/sw/tinyriscv_zynq/standalone_domain/bspinclude/include -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.o" -o "src/testperiph.o" "../src/testperiph.c"
+000-Finished building: ../src/testperiph.c
+000- 
+000-Building file: ../src/xdevcfg_selftest_example.c
+000-Invoking: ARM v7 gcc compiler
+000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdevcfg_selftest_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/sw/tinyriscv_zynq/standalone_domain/bspinclude/include -MMD -MP -MF"src/xdevcfg_selftest_example.d" -MT"src/xdevcfg_selftest_example.o" -o "src/xdevcfg_selftest_example.o" "../src/xdevcfg_selftest_example.c"
+000-Finished building: ../src/xdevcfg_selftest_example.c
+000- 
+000-Building file: ../src/xdmaps_example_w_intr.c
+000-Invoking: ARM v7 gcc compiler
+000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xdmaps_example_w_intr.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/sw/tinyriscv_zynq/standalone_domain/bspinclude/include -MMD -MP -MF"src/xdmaps_example_w_intr.d" -MT"src/xdmaps_example_w_intr.o" -o "src/xdmaps_example_w_intr.o" "../src/xdmaps_example_w_intr.c"
+000-Finished building: ../src/xdmaps_example_w_intr.c
+000- 
+000-Building file: ../src/xscugic_tapp_example.c
+000-Invoking: ARM v7 gcc compiler
+000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscugic_tapp_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/sw/tinyriscv_zynq/standalone_domain/bspinclude/include -MMD -MP -MF"src/xscugic_tapp_example.d" -MT"src/xscugic_tapp_example.o" -o "src/xscugic_tapp_example.o" "../src/xscugic_tapp_example.c"
+000-Finished building: ../src/xscugic_tapp_example.c
+000- 
+000-Building file: ../src/xscutimer_intr_example.c
+000-Invoking: ARM v7 gcc compiler
+000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscutimer_intr_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/sw/tinyriscv_zynq/standalone_domain/bspinclude/include -MMD -MP -MF"src/xscutimer_intr_example.d" -MT"src/xscutimer_intr_example.o" -o "src/xscutimer_intr_example.o" "../src/xscutimer_intr_example.c"
+000-Finished building: ../src/xscutimer_intr_example.c
+000- 
+000-Building file: ../src/xscutimer_polled_example.c
+000-Invoking: ARM v7 gcc compiler
+000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscutimer_polled_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/sw/tinyriscv_zynq/standalone_domain/bspinclude/include -MMD -MP -MF"src/xscutimer_polled_example.d" -MT"src/xscutimer_polled_example.o" -o "src/xscutimer_polled_example.o" "../src/xscutimer_polled_example.c"
+000-Finished building: ../src/xscutimer_polled_example.c
+000- 
+000-Building file: ../src/xscuwdt_intr_example.c
+000-Invoking: ARM v7 gcc compiler
+000-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xscuwdt_intr_example.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/sw/tinyriscv_zynq/standalone_domain/bspinclude/include -MMD -MP -MF"src/xscuwdt_intr_example.d" -MT"src/xscuwdt_intr_example.o" -o "src/xscuwdt_intr_example.o" "../src/xscuwdt_intr_example.c"
+000-Finished building: ../src/xscuwdt_intr_example.c
+000- 
+000-Building target: peripheral.elf
+000-Invoking: ARM v7 gcc linker
+000-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L/home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/sw/tinyriscv_zynq/standalone_domain/bsplib/lib -o "peripheral.elf"  ./src/testperiph.o ./src/xdevcfg_selftest_example.o ./src/xdmaps_example_w_intr.o ./src/xscugic_tapp_example.o ./src/xscutimer_intr_example.o ./src/xscutimer_polled_example.o ./src/xscuwdt_intr_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+000-Finished building target: peripheral.elf
+000- 
+000-Invoking: ARM v7 Print Size
+000-arm-none-eabi-size peripheral.elf  |tee "peripheral.elf.size"
+000-   text	   data	    bss	    dec	    hex	filename
+000-  44492	   1960	  33408	  79860	  137f4	peripheral.elf
+000-Finished building: peripheral.elf.size
+000- 
+00255-
+07:07:58 Build Finished (took 834ms)
+

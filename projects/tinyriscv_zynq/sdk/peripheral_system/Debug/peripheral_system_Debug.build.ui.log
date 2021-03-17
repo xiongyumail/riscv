@@ -1,0 +1,10 @@
+2021-03-17T07:07:59.36751400255-07:07:59 **** Build of configuration Debug for project peripheral_system ****
+000-make all 
+000-Generating bif file for the system project
+000-Executing command '::scw::generate_bif -xpfm /home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/tinyriscv_zynq.xpfm -domains standalone_domain -bifpath /home/vitis/projects/tinyriscv_zynq/sdk/peripheral_system/Debug/system.bif' on XSCT
+000-sdcard_gen --xpfm /home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/tinyriscv_zynq.xpfm --sys_config tinyriscv_zynq --bif /home/vitis/projects/tinyriscv_zynq/sdk/peripheral_system/Debug/system.bif --bitstream /home/vitis/projects/tinyriscv_zynq/sdk/peripheral/_ide/bitstream/design_1_wrapper.bit --elf /home/vitis/projects/tinyriscv_zynq/sdk/peripheral/Debug/peripheral.elf,ps7_cortexa9_0
+000-creating BOOT.BIN using /home/vitis/projects/tinyriscv_zynq/sdk/peripheral/_ide/bitstream/design_1_wrapper.bit
+000-Running /home/vitis/workspace/.tmp/vitis/vitis/Xilinx/Vitis/2020.1/bin/bootgen  -image /home/vitis/projects/tinyriscv_zynq/sdk/peripheral_system/Debug/sd_card_temp/boot.bif -w -o i BOOT.BIN
+00255-
+07:08:06 Build Finished (took 6s.775ms)
+

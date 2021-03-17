@@ -1,9 +1,109 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Mar 15 13:51:13 2021" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Mar 16 13:12:45 2021" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z010" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
+    <PORT DIR="O" LEFT="3" NAME="enet_txd" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_1_dout">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="xlconcat_1" PORT="dout"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="3" NAME="enet_rxd" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_enet_rxd">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="xlconcat_0" PORT="In0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="0" NAME="ENET0_GMII_TX_EN_0" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_ENET0_GMII_TX_EN">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_GMII_TX_EN"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="ENET0_GMII_RX_CLK_0" SIGIS="clk" SIGNAME="External_Ports_ENET0_GMII_RX_CLK_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_GMII_RX_CLK"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="ENET0_GMII_RX_DV_0" SIGIS="undef" SIGNAME="External_Ports_ENET0_GMII_RX_DV_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_GMII_RX_DV"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="ENET0_GMII_TX_CLK_0" SIGIS="clk" SIGNAME="External_Ports_ENET0_GMII_TX_CLK_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_GMII_TX_CLK"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="riscv_uart_rx_pin" SIGIS="undef" SIGNAME="External_Ports_riscv_uart_rx_pin">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="uart_rx_pin"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" LEFT="1" NAME="riscv_gpio" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_riscv_gpio">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="gpio"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="riscv_jtag_TDO" SIGIS="undef" SIGNAME="tinyriscv_soc_top_0_jtag_TDO">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="jtag_TDO"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="riscv_uart_tx_pin" SIGIS="undef" SIGNAME="tinyriscv_soc_top_0_uart_tx_pin">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="uart_tx_pin"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="riscv_jtag_TDI" SIGIS="undef" SIGNAME="External_Ports_riscv_jtag_TDI">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="jtag_TDI"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="riscv_jtag_TMS" SIGIS="undef" SIGNAME="External_Ports_riscv_jtag_TMS">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="jtag_TMS"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="riscv_jtag_TCK" SIGIS="undef" SIGNAME="External_Ports_riscv_jtag_TCK">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="jtag_TCK"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="riscv_halted_ind" SIGIS="undef" SIGNAME="tinyriscv_soc_top_0_halted_ind">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="halted_ind"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" LEFT="53" NAME="FIXED_IO_0_mio" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_MIO">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="MIO"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrn" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRN">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRN"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrp" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRP">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRP"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ps_srstb" SIGIS="undef" SIGNAME="processing_system7_0_PS_SRSTB">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_SRSTB"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ps_clk" SIGIS="undef" SIGNAME="processing_system7_0_PS_CLK">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_CLK"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="IO" NAME="FIXED_IO_0_ps_porb" SIGIS="undef" SIGNAME="processing_system7_0_PS_PORB">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_PORB"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="IO" NAME="DDR_0_cas_n" SIGIS="undef" SIGNAME="processing_system7_0_DDR_CAS_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_CAS_n"/>
@@ -79,61 +179,6 @@
         <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_DQS"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="IO" LEFT="53" NAME="FIXED_IO_0_mio" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_MIO">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="MIO"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrn" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRN">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRN"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ddr_vrp" SIGIS="undef" SIGNAME="processing_system7_0_DDR_VRP">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="DDR_VRP"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ps_srstb" SIGIS="undef" SIGNAME="processing_system7_0_PS_SRSTB">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_SRSTB"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ps_clk" SIGIS="undef" SIGNAME="processing_system7_0_PS_CLK">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_CLK"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" NAME="FIXED_IO_0_ps_porb" SIGIS="undef" SIGNAME="processing_system7_0_PS_PORB">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="PS_PORB"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="3" NAME="enet_txd" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_1_dout">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="xlconcat_1" PORT="dout"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="3" NAME="enet_rxd" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_enet_rxd">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="xlconcat_0" PORT="In0"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="0" NAME="ENET0_GMII_TX_EN_0" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_ENET0_GMII_TX_EN">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_GMII_TX_EN"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="ENET0_GMII_RX_CLK_0" SIGIS="clk" SIGNAME="External_Ports_ENET0_GMII_RX_CLK_0">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_GMII_RX_CLK"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="ENET0_GMII_RX_DV_0" SIGIS="undef" SIGNAME="External_Ports_ENET0_GMII_RX_DV_0">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_GMII_RX_DV"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="O" NAME="MDIO_ETHERNET_0_0_mdc" SIGIS="clk" SIGNAME="processing_system7_0_ENET0_MDIO_MDC">
       <CONNECTIONS>
         <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_MDIO_MDC"/>
@@ -152,61 +197,6 @@
     <PORT DIR="I" NAME="MDIO_ETHERNET_0_0_mdio_i" SIGIS="undef" SIGNAME="processing_system7_0_ENET0_MDIO_I">
       <CONNECTIONS>
         <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_MDIO_I"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="ENET0_GMII_TX_CLK_0" SIGIS="clk" SIGNAME="External_Ports_ENET0_GMII_TX_CLK_0">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="processing_system7_0" PORT="ENET0_GMII_TX_CLK"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="riscv_sysled" SIGIS="undef" SIGNAME="tinyriscv_soc_top_0_sysled">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="sysled"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="riscv_uart_debug_pin" SIGIS="undef" SIGNAME="External_Ports_riscv_uart_debug_pin">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="uart_debug_pin"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="riscv_uart_rx_pin" SIGIS="undef" SIGNAME="External_Ports_riscv_uart_rx_pin">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="uart_rx_pin"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="IO" LEFT="1" NAME="riscv_gpio" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_riscv_gpio">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="gpio"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="riscv_jtag_TDO" SIGIS="undef" SIGNAME="tinyriscv_soc_top_0_jtag_TDO">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="jtag_TDO"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="riscv_uart_tx_pin" SIGIS="undef" SIGNAME="tinyriscv_soc_top_0_uart_tx_pin">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="uart_tx_pin"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="riscv_jtag_TDI" SIGIS="undef" SIGNAME="External_Ports_riscv_jtag_TDI">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="jtag_TDI"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="riscv_jtag_TMS" SIGIS="undef" SIGNAME="External_Ports_riscv_jtag_TMS">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="jtag_TMS"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="riscv_jtag_TCK" SIGIS="undef" SIGNAME="External_Ports_riscv_jtag_TCK">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="jtag_TCK"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="riscv_halted_ind" SIGIS="undef" SIGNAME="tinyriscv_soc_top_0_halted_ind">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="halted_ind"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1311,12 +1301,12 @@
         <PORT CLKFREQUENCY="50000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="M_AXI_GP0_ACLK"/>
-            <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="sysclk"/>
+            <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="processing_system7_0_FCLK_RESET0_N">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="sysrst"/>
+            <CONNECTION INSTANCE="tinyriscv_soc_top_0" PORT="rst_ext_i"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="IO" LEFT="53" NAME="MIO" RIGHT="0" SIGIS="undef" SIGNAME="processing_system7_0_MIO">
@@ -1573,35 +1563,23 @@
     <MODULE COREREVISION="2" FULLNAME="/tinyriscv_soc_top_0" HWVERSION="1.0" INSTANCE="tinyriscv_soc_top_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="tinyriscv_soc_top" VLNV="user.org:user:tinyriscv_soc_top:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_tinyriscv_soc_top_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_tinyriscv_soc_top_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="sysclk" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_CLK0">
+        <PORT CLKFREQUENCY="50000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="sysrst" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_RESET0_N">
+        <PORT DIR="I" NAME="rst_ext_i" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="processing_system7_0_FCLK_RESET0_N">
           <CONNECTIONS>
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_RESET0_N"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="sysled" SIGIS="undef" SIGNAME="tinyriscv_soc_top_0_sysled">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="riscv_sysled"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="over" SIGIS="undef"/>
-        <PORT DIR="O" NAME="succ" SIGIS="undef"/>
         <PORT DIR="O" NAME="halted_ind" SIGIS="undef" SIGNAME="tinyriscv_soc_top_0_halted_ind">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="riscv_halted_ind"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="uart_debug_pin" SIGIS="undef" SIGNAME="External_Ports_riscv_uart_debug_pin">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="riscv_uart_debug_pin"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="uart_tx_pin" SIGIS="undef" SIGNAME="tinyriscv_soc_top_0_uart_tx_pin">
@@ -1639,10 +1617,6 @@
             <CONNECTION INSTANCE="External_Ports" PORT="riscv_jtag_TDO"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="spi_miso" SIGIS="undef"/>
-        <PORT DIR="O" NAME="spi_mosi" SIGIS="undef"/>
-        <PORT DIR="O" NAME="spi_ss" SIGIS="undef"/>
-        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="spi_clk" SIGIS="clk"/>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>

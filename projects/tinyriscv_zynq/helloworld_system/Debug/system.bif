@@ -1,7 +1,0 @@
-/*riscv_zynq*/
-the_ROM_image:
-{
- [bootloader] <riscv_zynq/boot/fsbl.elf>
- <bitstream>
- <elf,ps7_cortexa9_0>
-}

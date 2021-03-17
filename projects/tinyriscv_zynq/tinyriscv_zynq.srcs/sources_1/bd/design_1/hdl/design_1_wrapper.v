@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Mon Mar 15 13:51:12 2021
+//Date        : Tue Mar 16 13:12:45 2021
 //Host        : xiongyu running 64-bit Ubuntu 18.04.5 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -45,8 +45,6 @@ module design_1_wrapper
     riscv_jtag_TDI,
     riscv_jtag_TDO,
     riscv_jtag_TMS,
-    riscv_sysled,
-    riscv_uart_debug_pin,
     riscv_uart_rx_pin,
     riscv_uart_tx_pin);
   inout [14:0]DDR_0_addr;
@@ -84,8 +82,6 @@ module design_1_wrapper
   input riscv_jtag_TDI;
   output riscv_jtag_TDO;
   input riscv_jtag_TMS;
-  output riscv_sysled;
-  input riscv_uart_debug_pin;
   input riscv_uart_rx_pin;
   output riscv_uart_tx_pin;
 
@@ -127,8 +123,6 @@ module design_1_wrapper
   wire riscv_jtag_TDI;
   wire riscv_jtag_TDO;
   wire riscv_jtag_TMS;
-  wire riscv_sysled;
-  wire riscv_uart_debug_pin;
   wire riscv_uart_rx_pin;
   wire riscv_uart_tx_pin;
 
@@ -175,8 +169,6 @@ module design_1_wrapper
         .riscv_jtag_TDI(riscv_jtag_TDI),
         .riscv_jtag_TDO(riscv_jtag_TDO),
         .riscv_jtag_TMS(riscv_jtag_TMS),
-        .riscv_sysled(riscv_sysled),
-        .riscv_uart_debug_pin(riscv_uart_debug_pin),
         .riscv_uart_rx_pin(riscv_uart_rx_pin),
         .riscv_uart_tx_pin(riscv_uart_tx_pin));
 endmodule
