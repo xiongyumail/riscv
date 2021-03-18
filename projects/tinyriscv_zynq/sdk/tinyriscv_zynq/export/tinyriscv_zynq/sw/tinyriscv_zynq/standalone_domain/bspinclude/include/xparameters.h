@@ -218,6 +218,11 @@
 #define XPAR_PS7_SMCC_0_S_AXI_HIGHADDR 0xE100EFFF
 
 
+/* Definitions for peripheral MYIP_0 */
+#define XPAR_MYIP_0_S00_AXI_BASEADDR 0x43C00000
+#define XPAR_MYIP_0_S00_AXI_HIGHADDR 0x43C0FFFF
+
+
 /******************************************************************/
 
 /* Definitions for driver NANDPS */

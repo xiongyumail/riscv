@@ -23,6 +23,10 @@ set_property IOSTANDARD LVCMOS33 [get_ports riscv_uart_tx_pin]
 set_property IOSTANDARD LVCMOS33 [get_ports {riscv_gpio[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {riscv_gpio[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports riscv_jtag_TDO]
+set_property IOSTANDARD LVCMOS33 [get_ports {gpio_o_0[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {gpio_o_0[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {gpio_o_0[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {gpio_o_0[3]}]
 
 set_property PACKAGE_PIN Y16 [get_ports {enet_rxd[0]}]
 set_property PACKAGE_PIN V16 [get_ports {enet_rxd[1]}]
@@ -48,6 +52,11 @@ set_property PACKAGE_PIN B19 [get_ports riscv_uart_rx_pin]
 set_property PACKAGE_PIN B20 [get_ports riscv_uart_tx_pin]
 set_property PACKAGE_PIN H16 [get_ports {riscv_gpio[1]}]
 set_property PACKAGE_PIN A20 [get_ports {riscv_gpio[0]}]
+set_property PACKAGE_PIN W13 [get_ports {gpio_o_0[0]}]
+set_property PACKAGE_PIN G20 [get_ports {gpio_o_0[1]}]
+set_property PACKAGE_PIN J18 [get_ports {gpio_o_0[2]}]
+set_property PACKAGE_PIN G19 [get_ports {gpio_o_0[3]}]
+
 
 
 create_clock -period 40.000 -name ENET0_GMII_RX_CLK_0 -waveform {0.000 20.000} [get_ports ENET0_GMII_RX_CLK_0]

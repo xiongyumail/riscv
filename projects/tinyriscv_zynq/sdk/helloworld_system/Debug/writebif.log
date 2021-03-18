@@ -7,3 +7,30 @@ TRACE::2021-03-17.06:59:49::SCWBifWriter::proc[0] : ps7_cortexa9_0
 TRACE::2021-03-17.06:59:49::SCWBifWriter::Device type is : zynq
 TRACE::2021-03-17.06:59:49::SCWBifWriter::Writing BIF to file : /home/vitis/projects/tinyriscv_zynq/sdk/helloworld_system/Debug/system.bif
 TRACE::2021-03-17.06:59:49::SCWBifWriter::Writing the Zynq Baremetal bif 
+TRACE::2021-03-18.09:54:39::SCWBifWriter::Found the complete platform /home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/tinyriscv_zynq.xpfm
+TRACE::2021-03-18.09:54:39::SCWBifWriter::hardware databse : design_1_wrapper_6
+TRACE::2021-03-18.09:54:39::SCWBifWriter::bitstream found in the design
+TRACE::2021-03-18.09:54:39::SCWBifWriter::Found a baremetal domain, proc: ps7_cortexa9_0
+TRACE::2021-03-18.09:54:39::SCWBifWriter::proc type : 
+TRACE::2021-03-18.09:54:39::SCWBifWriter::proc[0] : ps7_cortexa9_0
+TRACE::2021-03-18.09:54:39::SCWBifWriter::Device type is : zynq
+TRACE::2021-03-18.09:54:39::SCWBifWriter::Writing BIF to file : /home/vitis/projects/tinyriscv_zynq/sdk/helloworld_system/Debug/system.bif
+TRACE::2021-03-18.09:54:39::SCWBifWriter::Writing the Zynq Baremetal bif 
+TRACE::2021-03-18.09:56:40::SCWBifWriter::Found the complete platform /home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/tinyriscv_zynq.xpfm
+TRACE::2021-03-18.09:56:40::SCWBifWriter::hardware databse : design_1_wrapper_6
+TRACE::2021-03-18.09:56:40::SCWBifWriter::bitstream found in the design
+TRACE::2021-03-18.09:56:40::SCWBifWriter::Found a baremetal domain, proc: ps7_cortexa9_0
+TRACE::2021-03-18.09:56:40::SCWBifWriter::proc type : 
+TRACE::2021-03-18.09:56:40::SCWBifWriter::proc[0] : ps7_cortexa9_0
+TRACE::2021-03-18.09:56:40::SCWBifWriter::Device type is : zynq
+TRACE::2021-03-18.09:56:40::SCWBifWriter::Writing BIF to file : /home/vitis/projects/tinyriscv_zynq/sdk/helloworld_system/Debug/system.bif
+TRACE::2021-03-18.09:56:40::SCWBifWriter::Writing the Zynq Baremetal bif 
+TRACE::2021-03-18.09:57:53::SCWBifWriter::Found the complete platform /home/vitis/projects/tinyriscv_zynq/sdk/tinyriscv_zynq/export/tinyriscv_zynq/tinyriscv_zynq.xpfm
+TRACE::2021-03-18.09:57:53::SCWBifWriter::hardware databse : design_1_wrapper_6
+TRACE::2021-03-18.09:57:53::SCWBifWriter::bitstream found in the design
+TRACE::2021-03-18.09:57:53::SCWBifWriter::Found a baremetal domain, proc: ps7_cortexa9_0
+TRACE::2021-03-18.09:57:53::SCWBifWriter::proc type : 
+TRACE::2021-03-18.09:57:53::SCWBifWriter::proc[0] : ps7_cortexa9_0
+TRACE::2021-03-18.09:57:53::SCWBifWriter::Device type is : zynq
+TRACE::2021-03-18.09:57:53::SCWBifWriter::Writing BIF to file : /home/vitis/projects/tinyriscv_zynq/sdk/helloworld_system/Debug/system.bif
+TRACE::2021-03-18.09:57:53::SCWBifWriter::Writing the Zynq Baremetal bif 

@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "design_1_processing_system7_0_0_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
@@ -83,9 +82,14 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/vitis/projects/tinyriscv_zynq/tinyriscv_zynq.cache/wt [current_project]
 set_property parent.project_path /home/vitis/projects/tinyriscv_zynq/tinyriscv_zynq.xpr [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths /home/vitis/projects/tinyriscv_zynq/tinyriscv_zynq.srcs/sources_1/imports [current_project]
+set_property ip_repo_paths {
+  /home/vitis/projects/tinyriscv_zynq/tinyriscv_zynq.srcs/sources_1/myip_1.0
+  /home/vitis/projects/tinyriscv/rtl
+  /home/vitis/projects/tinyriscv_zynq/tinyriscv_zynq.srcs/sources_1/imports
+} [current_project]
 update_ip_catalog
 set_property ip_output_repo /home/vitis/projects/tinyriscv_zynq/tinyriscv_zynq.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]

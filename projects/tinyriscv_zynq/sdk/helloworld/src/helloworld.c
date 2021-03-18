@@ -49,6 +49,16 @@
 #include "platform.h"
 #include "xil_printf.h"
 
+#include "xparameters.h"
+#include "xil_io.h"
+#include "sleep.h"
+#include "xil_types.h"
+#define XGpio_axi_WriteReg(BaseAddr, RegOffset, Data) \
+Xil_Out32((BaseAddr) + (u32)(RegOffset), (u32)(Data))
+#define XGpio_axi_ReadReg(BaseAddr, RegOffset) \
+Xil_In32((BaseAddr) + (u32)(RegOffset))
+
+#define GPIO_ADDR XPAR_MYIP_0_S00_AXI_BASEADDR
 
 int main()
 {
@@ -56,6 +66,15 @@ int main()
 
     print("Hello World\n\r");
     print("Successfully ran Hello World application");
+
+    while (1) {
+		Xil_Out32(GPIO_ADDR, 0x00);
+		print("led on\n\r");
+    	usleep(500000);
+		Xil_Out32(GPIO_ADDR, 0x01);
+		print("led off\n\r");
+    	usleep(500000);
+    }
     cleanup_platform();
     return 0;
 }

@@ -1,54 +1,64 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.849607",
-   "Default View_TopLeft":"88,-212",
+   "Default View_ScaleFactor":"0.711583",
+   "Default View_TopLeft":"-467,-270",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:9.0 TLS
 #  -string -flagsOSRD
-preplace port DDR_0 -pg 1 -lvl 4 -x 1280 -y 70 -defaultsOSRD
-preplace port FIXED_IO_0 -pg 1 -lvl 4 -x 1280 -y -120 -defaultsOSRD
-preplace port MDIO_ETHERNET_0_0 -pg 1 -lvl 4 -x 1280 -y 50 -defaultsOSRD
-preplace port ENET0_GMII_RX_CLK_0 -pg 1 -lvl 0 -x -190 -y -40 -defaultsOSRD
-preplace port ENET0_GMII_RX_DV_0 -pg 1 -lvl 0 -x -190 -y -20 -defaultsOSRD
-preplace port ENET0_GMII_TX_CLK_0 -pg 1 -lvl 0 -x -190 -y 10 -defaultsOSRD
-preplace port riscv_uart_rx_pin -pg 1 -lvl 0 -x -190 -y 190 -defaultsOSRD
-preplace port riscv_jtag_TDO -pg 1 -lvl 4 -x 1280 -y 230 -defaultsOSRD
-preplace port riscv_uart_tx_pin -pg 1 -lvl 4 -x 1280 -y 190 -defaultsOSRD
-preplace port riscv_jtag_TDI -pg 1 -lvl 0 -x -190 -y 250 -defaultsOSRD
-preplace port riscv_jtag_TMS -pg 1 -lvl 0 -x -190 -y 230 -defaultsOSRD
-preplace port riscv_jtag_TCK -pg 1 -lvl 0 -x -190 -y 210 -defaultsOSRD
-preplace port riscv_halted_ind -pg 1 -lvl 4 -x 1280 -y 170 -defaultsOSRD
-preplace portBus enet_txd -pg 1 -lvl 4 -x 1280 -y -250 -defaultsOSRD
-preplace portBus enet_rxd -pg 1 -lvl 0 -x -190 -y 270 -defaultsOSRD
-preplace portBus ENET0_GMII_TX_EN_0 -pg 1 -lvl 4 -x 1280 -y -140 -defaultsOSRD
-preplace portBus riscv_gpio -pg 1 -lvl 4 -x 1280 -y 210 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -x 440 -y -10 -defaultsOSRD
-preplace inst xlconcat_0 -pg 1 -lvl 1 -x 440 -y 280 -defaultsOSRD
-preplace inst xlconcat_1 -pg 1 -lvl 2 -x 810 -y -330 -defaultsOSRD
-preplace inst tinyriscv_soc_top_0 -pg 1 -lvl 3 -x 1030 -y 200 -defaultsOSRD
-preplace netloc processing_system7_0_ENET0_GMII_TXD 1 1 1 680 -330n
-preplace netloc xlconcat_0_dout 1 1 1 660 -10n
-preplace netloc xlconcat_1_dout 1 2 2 920 -250 N
-preplace netloc In0_0_1 1 0 1 NJ 270
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 -160 180 680 150 N
-preplace netloc processing_system7_0_ENET0_GMII_TX_EN 1 1 3 NJ -110 NJ -110 1140
-preplace netloc ENET0_GMII_RX_CLK_0_1 1 0 2 -170J -200 670
-preplace netloc ENET0_GMII_RX_DV_0_1 1 0 2 -160J -190 660
-preplace netloc ENET0_GMII_TX_CLK_0_1 1 0 2 -170J 170 670
-preplace netloc tinyriscv_soc_top_0_halted_ind 1 3 1 N 170
-preplace netloc tinyriscv_soc_top_0_uart_tx_pin 1 3 1 N 190
-preplace netloc Net 1 3 1 N 210
-preplace netloc tinyriscv_soc_top_0_jtag_TDO 1 3 1 N 230
-preplace netloc riscv_jtag_TDI_1 1 0 3 -170J 350 NJ 350 910
-preplace netloc riscv_jtag_TMS_1 1 0 3 -160J 210 NJ 210 910
-preplace netloc riscv_jtag_TCK_1 1 0 3 -170J 200 NJ 200 920
-preplace netloc riscv_uart_rx_pin_1 1 0 3 NJ 190 NJ 190 N
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 2 NJ 110 920
-preplace netloc processing_system7_0_FIXED_IO 1 1 3 680 0 N 0 1150
-preplace netloc processing_system7_0_DDR 1 1 3 N 30 N 30 1140
-preplace netloc processing_system7_0_MDIO_ETHERNET_0 1 1 3 NJ 10 NJ 10 1150
-levelinfo -pg 1 -190 440 810 1030 1280
-pagesize -pg 1 -db -bbox -sgen -390 -480 1500 490
+preplace port DDR_0 -pg 1 -lvl 5 -x 1690 -y 70 -defaultsOSRD
+preplace port FIXED_IO_0 -pg 1 -lvl 5 -x 1690 -y -120 -defaultsOSRD
+preplace port MDIO_ETHERNET_0_0 -pg 1 -lvl 5 -x 1690 -y 50 -defaultsOSRD
+preplace port ENET0_GMII_RX_CLK_0 -pg 1 -lvl 0 -x -330 -y -40 -defaultsOSRD
+preplace port ENET0_GMII_RX_DV_0 -pg 1 -lvl 0 -x -330 -y -20 -defaultsOSRD
+preplace port ENET0_GMII_TX_CLK_0 -pg 1 -lvl 0 -x -330 -y 10 -defaultsOSRD
+preplace port riscv_uart_rx_pin -pg 1 -lvl 0 -x -330 -y 190 -defaultsOSRD
+preplace port riscv_jtag_TDO -pg 1 -lvl 5 -x 1690 -y 230 -defaultsOSRD
+preplace port riscv_uart_tx_pin -pg 1 -lvl 5 -x 1690 -y 190 -defaultsOSRD
+preplace port riscv_jtag_TDI -pg 1 -lvl 0 -x -330 -y 250 -defaultsOSRD
+preplace port riscv_jtag_TMS -pg 1 -lvl 0 -x -330 -y 230 -defaultsOSRD
+preplace port riscv_jtag_TCK -pg 1 -lvl 0 -x -330 -y 210 -defaultsOSRD
+preplace port riscv_halted_ind -pg 1 -lvl 5 -x 1690 -y 170 -defaultsOSRD
+preplace portBus enet_txd -pg 1 -lvl 5 -x 1690 -y -250 -defaultsOSRD
+preplace portBus enet_rxd -pg 1 -lvl 0 -x -330 -y 270 -defaultsOSRD
+preplace portBus ENET0_GMII_TX_EN_0 -pg 1 -lvl 5 -x 1690 -y -140 -defaultsOSRD
+preplace portBus riscv_gpio -pg 1 -lvl 5 -x 1690 -y 210 -defaultsOSRD
+preplace portBus gpio_o_0 -pg 1 -lvl 5 -x 1690 -y 340 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 2 -x 320 -y -10 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 2 -x 320 -y 280 -defaultsOSRD
+preplace inst xlconcat_1 -pg 1 -lvl 3 -x 1100 -y -200 -defaultsOSRD
+preplace inst tinyriscv_soc_top_0 -pg 1 -lvl 4 -x 1490 -y 170 -defaultsOSRD
+preplace inst myip_0 -pg 1 -lvl 4 -x 1490 -y 340 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 4 -x 1490 -y -120 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 3 -x 1100 -y -60 -defaultsOSRD
+preplace netloc processing_system7_0_ENET0_GMII_TXD 1 2 1 590 -200n
+preplace netloc xlconcat_0_dout 1 2 1 540 -10n
+preplace netloc xlconcat_1_dout 1 3 2 1280 -250 N
+preplace netloc In0_0_1 1 0 2 NJ 270 N
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 3 -80 360 610 80 1280
+preplace netloc processing_system7_0_ENET0_GMII_TX_EN 1 2 3 600J 70 1300J 20 1660
+preplace netloc ENET0_GMII_RX_CLK_0_1 1 0 3 NJ -40 -90 170 560
+preplace netloc ENET0_GMII_RX_DV_0_1 1 0 3 NJ -20 -100 180 550
+preplace netloc ENET0_GMII_TX_CLK_0_1 1 0 3 NJ 10 -110 350 570
+preplace netloc tinyriscv_soc_top_0_halted_ind 1 4 1 1670 140n
+preplace netloc tinyriscv_soc_top_0_uart_tx_pin 1 4 1 1660 160n
+preplace netloc Net 1 4 1 1650 180n
+preplace netloc tinyriscv_soc_top_0_jtag_TDO 1 4 1 1640 200n
+preplace netloc riscv_jtag_TDI_1 1 0 4 -310J 220 -90 210 NJ 210 1270
+preplace netloc riscv_jtag_TMS_1 1 0 4 NJ 230 -100 200 NJ 200 N
+preplace netloc riscv_jtag_TCK_1 1 0 4 NJ 210 -120 370 630J 180 N
+preplace netloc riscv_uart_rx_pin_1 1 0 4 NJ 190 N 190 620J 160 N
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 2 630J 140 N
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 3 1 1290 -140n
+preplace netloc myip_0_gpio_o 1 4 1 N 340
+preplace netloc processing_system7_0_DDR 1 2 3 590 60 N 60 1660
+preplace netloc processing_system7_0_FIXED_IO 1 2 3 N 50 1310 30 1670
+preplace netloc processing_system7_0_MDIO_ETHERNET_0 1 2 3 620J 40 NJ 40 1660
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 2 580J -260 1290
+preplace netloc ps7_0_axi_periph_M00_AXI 1 3 2 1320 0 1650
+levelinfo -pg 1 -330 -140 320 1100 1490 1690
+pagesize -pg 1 -db -bbox -sgen -530 -680 1910 1480
 "
 }
-0
+{
+   "da_axi4_cnt":"4"
+}

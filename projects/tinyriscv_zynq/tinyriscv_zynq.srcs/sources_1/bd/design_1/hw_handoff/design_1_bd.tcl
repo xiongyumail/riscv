@@ -169,6 +169,7 @@ proc create_root_design { parentCell } {
   set ENET0_GMII_TX_EN_0 [ create_bd_port -dir O -from 0 -to 0 ENET0_GMII_TX_EN_0 ]
   set enet_rxd [ create_bd_port -dir I -from 3 -to 0 enet_rxd ]
   set enet_txd [ create_bd_port -dir O -from 3 -to 0 enet_txd ]
+  set gpio_o_0 [ create_bd_port -dir O -from 3 -to 0 gpio_o_0 ]
   set riscv_gpio [ create_bd_port -dir IO -from 1 -to 0 riscv_gpio ]
   set riscv_halted_ind [ create_bd_port -dir O riscv_halted_ind ]
   set riscv_jtag_TCK [ create_bd_port -dir I riscv_jtag_TCK ]
@@ -177,6 +178,9 @@ proc create_root_design { parentCell } {
   set riscv_jtag_TMS [ create_bd_port -dir I riscv_jtag_TMS ]
   set riscv_uart_rx_pin [ create_bd_port -dir I riscv_uart_rx_pin ]
   set riscv_uart_tx_pin [ create_bd_port -dir O riscv_uart_tx_pin ]
+
+  # Create instance: myip_0, and set properties
+  set myip_0 [ create_bd_cell -type ip -vlnv user.org:user:myip:1.0 myip_0 ]
 
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
@@ -232,6 +236,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_ENET1_PERIPHERAL_DIVISOR1 {1} \
    CONFIG.PCW_ENET1_RESET_ENABLE {0} \
    CONFIG.PCW_ENET_RESET_ENABLE {0} \
+   CONFIG.PCW_EN_CLK1_PORT {0} \
    CONFIG.PCW_EN_EMIO_ENET0 {1} \
    CONFIG.PCW_EN_ENET0 {1} \
    CONFIG.PCW_EN_SDIO0 {1} \
@@ -245,6 +250,8 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR1 {1} \
    CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR1 {1} \
+   CONFIG.PCW_FCLK_CLK1_BUF {FALSE} \
+   CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {50} \
    CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
    CONFIG.PCW_FPGA_FCLK1_ENABLE {0} \
    CONFIG.PCW_FPGA_FCLK2_ENABLE {0} \
@@ -398,6 +405,15 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_UIPARAM_DDR_T_RP {7} \
  ] $processing_system7_0
 
+  # Create instance: ps7_0_axi_periph, and set properties
+  set ps7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph ]
+  set_property -dict [ list \
+   CONFIG.NUM_MI {1} \
+ ] $ps7_0_axi_periph
+
+  # Create instance: rst_ps7_0_50M, and set properties
+  set rst_ps7_0_50M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_50M ]
+
   # Create instance: tinyriscv_soc_top_0, and set properties
   set tinyriscv_soc_top_0 [ create_bd_cell -type ip -vlnv user.org:user:tinyriscv_soc_top:1.0 tinyriscv_soc_top_0 ]
 
@@ -419,6 +435,8 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR_0] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO_0] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_MDIO_ETHERNET_0 [get_bd_intf_ports MDIO_ETHERNET_0_0] [get_bd_intf_pins processing_system7_0/MDIO_ETHERNET_0]
+  connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
+  connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins myip_0/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
 
   # Create port connections
   connect_bd_net -net ENET0_GMII_RX_CLK_0_1 [get_bd_ports ENET0_GMII_RX_CLK_0] [get_bd_pins processing_system7_0/ENET0_GMII_RX_CLK]
@@ -426,14 +444,16 @@ proc create_root_design { parentCell } {
   connect_bd_net -net ENET0_GMII_TX_CLK_0_1 [get_bd_ports ENET0_GMII_TX_CLK_0] [get_bd_pins processing_system7_0/ENET0_GMII_TX_CLK]
   connect_bd_net -net In0_0_1 [get_bd_ports enet_rxd] [get_bd_pins xlconcat_0/In0]
   connect_bd_net -net Net [get_bd_ports riscv_gpio] [get_bd_pins tinyriscv_soc_top_0/gpio]
+  connect_bd_net -net myip_0_gpio_o [get_bd_ports gpio_o_0] [get_bd_pins myip_0/gpio_o]
   connect_bd_net -net processing_system7_0_ENET0_GMII_TXD [get_bd_pins processing_system7_0/ENET0_GMII_TXD] [get_bd_pins xlconcat_1/In0]
   connect_bd_net -net processing_system7_0_ENET0_GMII_TX_EN [get_bd_ports ENET0_GMII_TX_EN_0] [get_bd_pins processing_system7_0/ENET0_GMII_TX_EN]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins tinyriscv_soc_top_0/clk]
-  connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins tinyriscv_soc_top_0/rst_ext_i]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins myip_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk] [get_bd_pins tinyriscv_soc_top_0/clk]
+  connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_50M/ext_reset_in] [get_bd_pins tinyriscv_soc_top_0/rst_ext_i]
   connect_bd_net -net riscv_jtag_TCK_1 [get_bd_ports riscv_jtag_TCK] [get_bd_pins tinyriscv_soc_top_0/jtag_TCK]
   connect_bd_net -net riscv_jtag_TDI_1 [get_bd_ports riscv_jtag_TDI] [get_bd_pins tinyriscv_soc_top_0/jtag_TDI]
   connect_bd_net -net riscv_jtag_TMS_1 [get_bd_ports riscv_jtag_TMS] [get_bd_pins tinyriscv_soc_top_0/jtag_TMS]
   connect_bd_net -net riscv_uart_rx_pin_1 [get_bd_ports riscv_uart_rx_pin] [get_bd_pins tinyriscv_soc_top_0/uart_rx_pin]
+  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins myip_0/s00_axi_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
   connect_bd_net -net tinyriscv_soc_top_0_halted_ind [get_bd_ports riscv_halted_ind] [get_bd_pins tinyriscv_soc_top_0/halted_ind]
   connect_bd_net -net tinyriscv_soc_top_0_jtag_TDO [get_bd_ports riscv_jtag_TDO] [get_bd_pins tinyriscv_soc_top_0/jtag_TDO]
   connect_bd_net -net tinyriscv_soc_top_0_uart_tx_pin [get_bd_ports riscv_uart_tx_pin] [get_bd_pins tinyriscv_soc_top_0/uart_tx_pin]
@@ -441,6 +461,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net xlconcat_1_dout [get_bd_ports enet_txd] [get_bd_pins xlconcat_1/dout]
 
   # Create address segments
+  assign_bd_address -offset 0x43C00000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs myip_0/S00_AXI/S00_AXI_reg] -force
 
 
   # Restore current instance

@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Tue Mar 16 13:12:45 2021
+//Date        : Thu Mar 18 09:15:53 2021
 //Host        : xiongyu running 64-bit Ubuntu 18.04.5 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -39,6 +39,7 @@ module design_1_wrapper
     MDIO_ETHERNET_0_0_mdio_io,
     enet_rxd,
     enet_txd,
+    gpio_o_0,
     riscv_gpio,
     riscv_halted_ind,
     riscv_jtag_TCK,
@@ -76,6 +77,7 @@ module design_1_wrapper
   inout MDIO_ETHERNET_0_0_mdio_io;
   input [3:0]enet_rxd;
   output [3:0]enet_txd;
+  output [3:0]gpio_o_0;
   inout [1:0]riscv_gpio;
   output riscv_halted_ind;
   input riscv_jtag_TCK;
@@ -117,6 +119,7 @@ module design_1_wrapper
   wire MDIO_ETHERNET_0_0_mdio_t;
   wire [3:0]enet_rxd;
   wire [3:0]enet_txd;
+  wire [3:0]gpio_o_0;
   wire [1:0]riscv_gpio;
   wire riscv_halted_ind;
   wire riscv_jtag_TCK;
@@ -163,6 +166,7 @@ module design_1_wrapper
         .MDIO_ETHERNET_0_0_mdio_t(MDIO_ETHERNET_0_0_mdio_t),
         .enet_rxd(enet_rxd),
         .enet_txd(enet_txd),
+        .gpio_o_0(gpio_o_0),
         .riscv_gpio(riscv_gpio),
         .riscv_halted_ind(riscv_halted_ind),
         .riscv_jtag_TCK(riscv_jtag_TCK),
